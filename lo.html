@@ -1,0 +1,153 @@
+<html ng-app="MyFirstApp">
+<head>
+	<title>h</title>
+  <script type="text/javascript">
+    var app = angular.module("MyFirstApp",[])
+    app.controller("Firstcontroller", function($scope,$http){
+
+    });
+  </script>
+</head>
+<body ng-controller="Firstcontroller">
+	<h2>Next Event</h2>
+          <select type="ciudades" name="ciudades" name="OS">
+             <option value="1">New York</option> 
+             <option value="2">Orlando</option> 
+             <option value="3">San Francisco</option>
+             <option value="10">Miami</option> 
+          </select>
+          <button type="button" onclik="ejecutar">f</button>
+          <p>Do not miss our next visit, count the seconds.</p>
+          <table class="mono-cro">
+            <tr class="info">
+              <td id="days">120</td>
+              <td id="hours">4</td>
+              <td id="minutes">12</td>
+              <td id="seconds">22</td>
+            </tr>
+            <tr class="info-des">
+              <td>Days</td>
+              <td>Hours</td>
+              <td>Minutes</td>
+              <td>Seconds</td>
+            </tr>
+          </table><!--MODIFICAR-->
+          <div ng-repeat="post in posts">
+            <h3>{{city.title}}</h2>
+          </div>
+        </div>
+        <div class="list-event">
+          <h2>List of upcoming events</h2>
+          <table class="tabla">
+            <tr>
+              <td><strong>Place</strong></td>
+              <td><strong>hour</strong></td>
+              <td><strong>date</strong></td>
+              <td><strong>Cost of entry</strong></td>
+              <td><strong>Will attend</strong></td>
+            </tr>
+
+            <tr>
+              <td>Orlando</td>
+              <td>19:20</td>
+              <td id="pv">2019</td>
+              <td>Free</td>
+              <td><a class="bit-rsvp" href="">Rsvp</a></td>
+            </tr>
+
+            <tr>
+              <td>New York</td>
+              <td>19:20</td>
+              <td>10-07-17</td>
+              <td>12$</td>
+              <td><a class="bit-rsvp" href="">Rsvp</a></td>
+            </tr>
+
+            <tr>
+              <td>San Francisco</td>
+              <td>19:20</td>
+              <td>15-09-17</td>
+              <td>22$</td>
+              <td><a class="bit-rsvp" href="">Rsvp</a></td>
+            </tr>
+
+            <tr>
+              <td>Miami</td>
+              <td>19:20</td>
+              <td>
+                <input class="city3" type="number" id="año" value="2019">
+                <input class="city3" type="number" id="dia" value="6">
+                <input class="city3" type="number" id="mes" value="2">
+              </td>
+              <td>100$</td>
+              <td><a class="bit-rsvp" href="">Rsvp</a></td>
+            </tr>
+          </table>
+          <br>
+          <br>
+        </div>
+
+        
+
+     
+
+
+     <script type="text/javascript">
+
+    function cambiar(){
+
+    }
+   
+      var t=document.getElementsByClassName("city3")[0].value;
+      var j = parseInt(t); 
+
+      var y=document.getElementsByClassName("city3")[1].value;
+      var k = parseInt(y); 
+
+      var o=document.getElementsByClassName("city3")[2].value;
+      var l = parseInt(o); 
+      
+
+      var a = j;
+      var b = k;
+      var c = l;
+
+		 function countdown(){
+
+                 var now = new Date();
+                 var eventDate = new Date(a,b,c);
+
+                 var currentTiime = now.getTime();
+                 var eventTime = eventDate.getTime();
+
+                 var remTime = eventTime - currentTiime;
+
+                 var s = Math.floor(remTime / 1000);
+                 var m = Math.floor(s / 60);
+                 var h = Math.floor(m / 60);
+                 var d = Math.floor(h / 24);
+
+                 h %= 24;
+                 m %= 60;
+                 s %= 60;
+
+                 h = (h < 10) ? "0" + h : h;
+                 m = (m < 10) ? "0" + m : m;
+                 s = (s < 10) ? "0" + s : s;
+
+                 document.getElementById("days").textContent = d;
+                 document.getElementById("days").innerText = d;
+
+                 document.getElementById("hours").textContent = h;
+                 document.getElementById("minutes").textContent = m;
+                 document.getElementById("seconds").textContent = s;
+
+                 setTimeout(countdown, 1000);
+
+             }
+
+             countdown();
+
+	</script>
+</body>
+</html>
